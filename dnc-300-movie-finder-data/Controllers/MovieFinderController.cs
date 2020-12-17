@@ -10,9 +10,13 @@ namespace dnc_300_movie_finder_data.Controllers
 {
     public class MovieFinderController : Controller
     {
-        public string FindMovie()
+        //public string FindMovie(string MovieData = "Hello")
+        //{
+        //    return MovieData;
+        //}
+        public ActionResult Index()
         {
-            return "";
+            return View();
         }
     }
 }

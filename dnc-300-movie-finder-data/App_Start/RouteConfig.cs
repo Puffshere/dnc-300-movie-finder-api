@@ -16,7 +16,7 @@ namespace dnc_300_movie_finder_data
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new { controller = "MovieFinder", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "MovieFinder", action = "MovieData", id = UrlParameter.Optional }
             );
         }
     }

@@ -1,9 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dnc_300_movie_finder_data.Controllers.Tests
 {
@@ -17,6 +12,7 @@ namespace dnc_300_movie_finder_data.Controllers.Tests
             string response = mfc.FindMovie(t: "Batman");
             Assert.IsTrue(response.Contains("Batman"));
         }
+
         [TestMethod]
         public void TestFindMovieByTitleWithCache()
         {
@@ -25,6 +21,7 @@ namespace dnc_300_movie_finder_data.Controllers.Tests
             response = mfc.FindMovie(t: "baby%20driver");
             Assert.IsTrue(response.Contains("Baby Driver"));
         }
+
         [TestMethod]
         public void TestFindMovieByID()
         {
@@ -32,6 +29,7 @@ namespace dnc_300_movie_finder_data.Controllers.Tests
             string response = mfc.FindMovie(i: "tt3896198");
             Assert.IsTrue(response.Contains("Guardians of the Galaxy"));
         }
+
         [TestMethod]
         public void TestFindMovieByIDWithCache()
         {

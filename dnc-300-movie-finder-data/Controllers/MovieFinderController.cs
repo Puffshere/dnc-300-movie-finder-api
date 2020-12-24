@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
-using System.Net;
 using System.IO;
-using Newtonsoft.Json;
+using System.Net;
+using System.Web.Mvc;
 
 namespace dnc_300_movie_finder_data.Controllers
 {
     public class MovieFinderController : Controller
     {
         public List<dnc_300_movie_finder_data.Models.MovieFinderModel> Movies;
+
         public ActionResult FindMovie()
         {
             string movieTitle = "Ironman";
@@ -46,7 +47,6 @@ namespace dnc_300_movie_finder_data.Controllers
             };
 
             string fullSURL = sURL + param1;
-
 
             string responseFromServer = "";
 

@@ -5,20 +5,21 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace dnc_300_movie_finder_data.Controllers
 {
     public class MovieFinderController : Controller
     {
         public List<dnc_300_movie_finder_data.Models.MovieFinderModel> Movies;
-        public ActionResult MovieData()
+        public ActionResult FindMovie()
         {
             string sURL = "http://www.omdbapi.com/?apikey=3b0ec9e3&i=tt0111161";
+
             //HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(sURL);
             //myRequest.Method = "GET";
             //System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
             //byte[] byte1 = new byte[] { }; // encoding.GetBytes(formPost);
-
 
             if (Session["sessionMovies"] != null)
             {
@@ -44,7 +45,10 @@ namespace dnc_300_movie_finder_data.Controllers
             //Movies = string.Desialize();
             Session["sessionMovies"] = Movies;
 
-            return View(responseFromServer);
+            var obj = JsonConvert.DeserializeObject(responseFromServer);
+            var formatted = JsonConvert.SerializeObject(obj, Formatting.Indented);
+
+            return View(formatted);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace dnc_300_movie_finder_data.Controllers
         {
             string movieTitle = "The Ironman";
             string movieId = "tt3896198";
-            bool which = false;
+            bool whichParam = false;
             string param1 = "";
 
             string sURL = "http://www.omdbapi.com/?apikey=3b0ec9e3&i=";
@@ -31,14 +31,14 @@ namespace dnc_300_movie_finder_data.Controllers
 
             if (m == "i")
             {
-                which = true;
+                whichParam = true;
             }
             else
             {
-                which = false;
+                whichParam = false;
             }
 
-            if (!which)
+            if (!whichParam)
             {
                 param1 = movieTitle;
             }

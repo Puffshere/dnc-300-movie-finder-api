@@ -45,10 +45,12 @@ namespace dnc_300_movie_finder_data.Controllers
             //Movies = string.Desialize();
             Session["sessionMovies"] = Movies;
 
-            var obj = JsonConvert.DeserializeObject(responseFromServer);
-            var formatted = JsonConvert.SerializeObject(obj, Formatting.Indented);
 
-            return View(formatted);
+            //Adds formatting to return Json using Newtonsoft.Json
+            var obj = JsonConvert.DeserializeObject(responseFromServer);
+            var formattedMovieData = JsonConvert.SerializeObject(obj, Formatting.Indented);
+
+            return View(formattedMovieData);
         }
     }
 }

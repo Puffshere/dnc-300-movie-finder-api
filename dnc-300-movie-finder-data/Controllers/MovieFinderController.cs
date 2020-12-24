@@ -12,10 +12,45 @@ namespace dnc_300_movie_finder_data.Controllers
         public List<dnc_300_movie_finder_data.Models.MovieFinderModel> Movies;
         public ActionResult FindMovie()
         {
-            string sURL = "http://www.omdbapi.com/?apikey=3b0ec9e3&i=tt0111161";
+            string movieTitle = "Ironman";
+            string movieId = "tt0231426";
+            bool which = false;
+            string param1 = "";
+
+            string sURL = "http://www.omdbapi.com/?apikey=3b0ec9e3&t=";
+
+            string param = sURL;
+
+            char first = param[0];
+            char second = param[1];
+            char last = param[param.Length - 1];
+
+            Console.WriteLine(last);
+
+            if (param == "i")
+            {
+                which = true;
+            }
+            else
+            {
+                which = false;
+            }
+
+            if (!which)
+            {
+                param1 = movieTitle;
+            }
+            else
+            {
+                param1 = movieId;
+            };
+
+            string fullSURL = sURL + param1;
+
+
             string responseFromServer = "";
 
-            WebRequest request = WebRequest.Create(sURL);
+            WebRequest request = WebRequest.Create(fullSURL);
             WebResponse response = request.GetResponse();
 
             using (Stream dataStream = response.GetResponseStream())

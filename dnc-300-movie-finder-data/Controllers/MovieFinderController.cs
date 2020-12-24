@@ -13,22 +13,23 @@ namespace dnc_300_movie_finder_data.Controllers
 
         public ActionResult FindMovie()
         {
-            string movieTitle = "Ironman";
-            string movieId = "tt0231426";
+            string movieTitle = "The Ironman";
+            string movieId = "tt3896198";
             bool which = false;
             string param1 = "";
 
-            string sURL = "http://www.omdbapi.com/?apikey=3b0ec9e3&t=";
+            string sURL = "http://www.omdbapi.com/?apikey=3b0ec9e3&i=";
 
             string param = sURL;
 
             char first = param[0];
             char second = param[1];
-            char last = param[param.Length - 1];
+            char last = param[param.Length - 2];
+            var m = last.ToString();
 
             Console.WriteLine(last);
 
-            if (param == "i")
+            if (m == "i")
             {
                 which = true;
             }

@@ -13,12 +13,12 @@ namespace dnc_300_movie_finder_data.Controllers
 
         public ActionResult FindMovie()
         {
-            string movieTitle = "The Ironman";
+            string movieTitle = "The Hulk";
             string movieId = "tt3896198";
             bool whichParam = false;
             string param1 = "";
 
-            string sURL = "http://www.omdbapi.com/?apikey=3b0ec9e3&i=";
+            string sURL = "http://www.omdbapi.com/?apikey=3b0ec9e3&t=";
 
             string param = sURL;
 
